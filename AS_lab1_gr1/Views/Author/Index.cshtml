@@ -1,0 +1,14 @@
+﻿@model IEnumerable<Author>
+
+<h3>Authors</h3>
+
+@foreach (var obj in Model) 
+{
+    <ul>
+        <li>Id: @obj.Id</li>
+        <li>First Name: @obj.FirstName</li>
+        <li>Last Name: @obj.LastName</li>
+    </ul>
+    <hr />
+}
+<a asp-controller="author" asp-action="add">Add new author</a>

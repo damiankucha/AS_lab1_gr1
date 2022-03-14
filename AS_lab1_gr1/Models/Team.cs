@@ -14,5 +14,9 @@
 
         // Players
         public ICollection<Player> Players { get; set; }
+
+        // League
+        public League? League { get; set; }
+        public int LeagueId { get; set; }
     }
 }

@@ -1,0 +1,18 @@
+﻿@model League
+
+<form method="post">
+    <h2>Add new league</h2>
+    <div>
+        <label asp-for="Name"></label>
+        <input asp-for="Name" />
+    </div>
+    <div>
+        <label asp-for="Country"></label>
+        <input asp-for="Country" />
+    </div>
+    <div>
+        <label asp-for="Level"></label>
+        <input asp-for="Level" />
+    </div>
+    <button type="submit">Add</button>
+</form>

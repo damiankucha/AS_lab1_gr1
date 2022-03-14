@@ -10,6 +10,14 @@ namespace AS_lab1_gr1
         public virtual DbSet<Category> Categories { get; set; }
         public virtual DbSet<Comment> Comments { get; set; }
         public virtual DbSet<Tag> Tags { get; set; }
+        public virtual DbSet<League> Leagues { get; set; }
+        public virtual DbSet<Team> Teams { get; set; }
+        public virtual DbSet<Match> Matchs { get; set; }
+        public virtual DbSet<MatchEvent> MatchEvents { get; set; }
+        public virtual DbSet<EventType> EventTypes { get; set; }
+        public virtual DbSet<MatchPlayer> MatchPlayers { get; set; }
+        public virtual DbSet<Position> Positions { get; set; }
+        public virtual DbSet<Player> Players { get; set; }
 
         public MyDbContext(DbContextOptions<MyDbContext> options) : base(options)
         {

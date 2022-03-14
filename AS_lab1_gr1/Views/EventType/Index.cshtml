@@ -1,0 +1,13 @@
+﻿@model IEnumerable<EventType>
+
+<h3>Event Type</h3>
+
+@foreach (var obj in Model) 
+{
+    <ul>
+        <li>Id: @obj.Id</li>
+        <li>Name: @obj.Name</li>
+    </ul>
+    <hr />
+}
+<a asp-controller="EventType" asp-action="add">Add new event type</a>

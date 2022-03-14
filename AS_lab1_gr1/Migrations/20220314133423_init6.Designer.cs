@@ -4,6 +4,7 @@ using AS_lab1_gr1;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AS_lab1_gr1.Migrations
 {
     [DbContext(typeof(MyDbContext))]
-    partial class MyDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220314133423_init6")]
+    partial class init6
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -158,7 +160,7 @@ namespace AS_lab1_gr1.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("EventTypes");
+                    b.ToTable("EventType");
                 });
 
             modelBuilder.Entity("AS_lab1_gr1.Models.League", b =>
@@ -182,7 +184,7 @@ namespace AS_lab1_gr1.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Leagues");
+                    b.ToTable("League");
                 });
 
             modelBuilder.Entity("AS_lab1_gr1.Models.Match", b =>
@@ -212,7 +214,7 @@ namespace AS_lab1_gr1.Migrations
 
                     b.HasIndex("HomeTeamId");
 
-                    b.ToTable("Matchs");
+                    b.ToTable("Match");
                 });
 
             modelBuilder.Entity("AS_lab1_gr1.Models.MatchEvent", b =>
@@ -243,7 +245,7 @@ namespace AS_lab1_gr1.Migrations
 
                     b.HasIndex("MatchPlayerId");
 
-                    b.ToTable("MatchEvents");
+                    b.ToTable("MatchEvent");
                 });
 
             modelBuilder.Entity("AS_lab1_gr1.Models.MatchPlayer", b =>
@@ -254,9 +256,6 @@ namespace AS_lab1_gr1.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
-                    b.Property<int>("MatchId")
-                        .HasColumnType("int");
-
                     b.Property<int>("PlayerId")
                         .HasColumnType("int");
 
@@ -265,13 +264,11 @@ namespace AS_lab1_gr1.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("MatchId");
-
                     b.HasIndex("PlayerId");
 
                     b.HasIndex("PositionId");
 
-                    b.ToTable("MatchPlayers");
+                    b.ToTable("MatchPlayer");
                 });
 
             modelBuilder.Entity("AS_lab1_gr1.Models.Player", b =>
@@ -304,7 +301,7 @@ namespace AS_lab1_gr1.Migrations
 
                     b.HasIndex("TeamId");
 
-                    b.ToTable("Players");
+                    b.ToTable("Player");
                 });
 
             modelBuilder.Entity("AS_lab1_gr1.Models.Position", b =>
@@ -321,7 +318,7 @@ namespace AS_lab1_gr1.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Positions");
+                    b.ToTable("Position");
                 });
 
             modelBuilder.Entity("AS_lab1_gr1.Models.Tag", b =>
@@ -371,7 +368,7 @@ namespace AS_lab1_gr1.Migrations
 
                     b.HasIndex("LeagueId");
 
-                    b.ToTable("Teams");
+                    b.ToTable("Team");
                 });
 
             modelBuilder.Entity("PlayerPosition", b =>
@@ -486,12 +483,6 @@ namespace AS_lab1_gr1.Migrations
 
             modelBuilder.Entity("AS_lab1_gr1.Models.MatchPlayer", b =>
                 {
-                    b.HasOne("AS_lab1_gr1.Models.Match", "Match")
-                        .WithMany("matchPlayers")
-                        .HasForeignKey("MatchId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("AS_lab1_gr1.Models.Player", "Player")
                         .WithMany("MatchPlayers")
                         .HasForeignKey("PlayerId")
@@ -503,8 +494,6 @@ namespace AS_lab1_gr1.Migrations
                         .HasForeignKey("PositionId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.Navigation("Match");
 
                     b.Navigation("Player");
 
@@ -578,8 +567,6 @@ namespace AS_lab1_gr1.Migrations
                     b.Navigation("Articles");
 
                     b.Navigation("MatchEvents");
-
-                    b.Navigation("matchPlayers");
                 });
 
             modelBuilder.Entity("AS_lab1_gr1.Models.MatchPlayer", b =>

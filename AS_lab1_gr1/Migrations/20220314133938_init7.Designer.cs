@@ -4,6 +4,7 @@ using AS_lab1_gr1;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AS_lab1_gr1.Migrations
 {
     [DbContext(typeof(MyDbContext))]
-    partial class MyDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220314133938_init7")]
+    partial class init7
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -158,7 +160,7 @@ namespace AS_lab1_gr1.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("EventTypes");
+                    b.ToTable("EventType");
                 });
 
             modelBuilder.Entity("AS_lab1_gr1.Models.League", b =>
@@ -212,7 +214,7 @@ namespace AS_lab1_gr1.Migrations
 
                     b.HasIndex("HomeTeamId");
 
-                    b.ToTable("Matchs");
+                    b.ToTable("Match");
                 });
 
             modelBuilder.Entity("AS_lab1_gr1.Models.MatchEvent", b =>
@@ -243,7 +245,7 @@ namespace AS_lab1_gr1.Migrations
 
                     b.HasIndex("MatchPlayerId");
 
-                    b.ToTable("MatchEvents");
+                    b.ToTable("MatchEvent");
                 });
 
             modelBuilder.Entity("AS_lab1_gr1.Models.MatchPlayer", b =>
@@ -271,7 +273,7 @@ namespace AS_lab1_gr1.Migrations
 
                     b.HasIndex("PositionId");
 
-                    b.ToTable("MatchPlayers");
+                    b.ToTable("MatchPlayer");
                 });
 
             modelBuilder.Entity("AS_lab1_gr1.Models.Player", b =>
@@ -304,7 +306,7 @@ namespace AS_lab1_gr1.Migrations
 
                     b.HasIndex("TeamId");
 
-                    b.ToTable("Players");
+                    b.ToTable("Player");
                 });
 
             modelBuilder.Entity("AS_lab1_gr1.Models.Position", b =>
@@ -321,7 +323,7 @@ namespace AS_lab1_gr1.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Positions");
+                    b.ToTable("Position");
                 });
 
             modelBuilder.Entity("AS_lab1_gr1.Models.Tag", b =>
@@ -371,7 +373,7 @@ namespace AS_lab1_gr1.Migrations
 
                     b.HasIndex("LeagueId");
 
-                    b.ToTable("Teams");
+                    b.ToTable("Team");
                 });
 
             modelBuilder.Entity("PlayerPosition", b =>

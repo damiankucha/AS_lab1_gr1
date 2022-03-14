@@ -20,5 +20,8 @@
         // Match Event
         public ICollection<MatchEvent> MatchEvents { get; set; }
 
+        // Match Player
+        public ICollection<MatchPlayer> matchPlayers { get; set; }
+
     }
 }

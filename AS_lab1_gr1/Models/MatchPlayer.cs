@@ -11,5 +11,8 @@
 
         public Position Position { get; set; }
         public int PositionId { get; set; }
+
+        public Match Match { get; set; }
+        public int MatchId { get; set; }
     }
 }

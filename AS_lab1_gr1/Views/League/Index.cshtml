@@ -1,1 +1,15 @@
-﻿<h1>Hello world!</h1>
+﻿@model IEnumerable<League>
+
+<h3>Leagues</h3>
+
+@foreach (var obj in Model) 
+{
+    <ul>
+        <li>Id: @obj.Id</li>
+        <li>Name: @obj.Name</li>
+        <li>Country: @obj.Country</li>
+        <li>Level: @obj.Level</li>
+    </ul>
+    <hr />
+}
+<a asp-controller="league" asp-action="add">Add new leagues</a>

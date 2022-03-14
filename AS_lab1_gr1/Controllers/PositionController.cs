@@ -3,19 +3,19 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace AS_lab1_gr1.Controllers
 {
-    public class EventTypeController : Controller
+    public class PositionController : Controller
     {
         private readonly MyDbContext _dbContext;
 
-        public EventTypeController(MyDbContext dbContext)
+        public PositionController(MyDbContext dbContext)
         {
             _dbContext = dbContext;
         }
 
         public IActionResult Index()
         {
-            IEnumerable<EventType> eventTypes = _dbContext.EventTypes;
-            return View(eventTypes);
+            IEnumerable<Position> positions = _dbContext.Positions;
+            return View(positions);
         }
 
         public IActionResult Add()
@@ -24,11 +24,11 @@ namespace AS_lab1_gr1.Controllers
         }
 
         [HttpPost]
-        public IActionResult Add(EventType eventType)
+        public IActionResult Add(Position position)
         {
             if (ModelState.IsValid)
             {
-                _dbContext.EventTypes.Add(eventType);
+                _dbContext.Positions.Add(position);
                 _dbContext.SaveChanges();
                 return RedirectToAction("Index");
             }

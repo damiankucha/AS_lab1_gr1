@@ -8,6 +8,8 @@
         <li>Id: @obj.Id</li>
         <li>First Name: @obj.FirstName</li>
         <li>Last Name: @obj.LastName</li>
+        <a asp-controller="author" asp-action="delete" asp-route-id="@obj.Id">Delete</a>
+        <a asp-controller="author" asp-action="Edit" asp-route-id="@obj.Id">Edit</a>
     </ul>
     <hr />
 }

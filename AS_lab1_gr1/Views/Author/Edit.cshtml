@@ -1,0 +1,14 @@
+﻿@model Author
+
+<form method="post">
+    <h2>Edit author</h2>
+    <div>
+        <label asp-for="FirstName"></label>
+        <input asp-for="FirstName" />
+    </div>
+    <div>
+        <label asp-for="LastName"></label>
+        <input asp-for="LastName" />
+    </div>
+    <button type="submit">Update</button>
+</form>

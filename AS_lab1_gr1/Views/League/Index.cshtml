@@ -2,6 +2,12 @@
 
 <h3>Leagues</h3>
 
+@if (TempData["success"] != null)
+{
+    <h2>@TempData["success"]</h2>
+}
+
+
 @foreach (var obj in Model) 
 {
     <ul>
@@ -9,6 +15,8 @@
         <li>Name: @obj.Name</li>
         <li>Country: @obj.Country</li>
         <li>Level: @obj.Level</li>
+        <a asp-controller="league" asp-action="delete" asp-route-id="@obj.Id">Delete</a>
+        <a asp-controller="league" asp-action="Edit" asp-route-id="@obj.Id">Edit</a>
     </ul>
     <hr />
 }

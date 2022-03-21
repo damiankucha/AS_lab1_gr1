@@ -35,5 +35,51 @@ namespace AS_lab1_gr1.Controllers
 
             return View();
         }
+
+
+        public IActionResult Delete(int? id)
+        {
+            var obj = _dbContext.Positions.Find(id);
+            if (obj == null)
+            {
+                return NotFound();
+            }
+
+            _dbContext.Remove(obj);
+            _dbContext.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
+
+        public IActionResult Edit(int? id)
+        {
+            if (id == null || id == 0)
+            {
+                return NotFound();
+            }
+
+            var positionFromDb = _dbContext.Positions.Find(id);
+
+            if (positionFromDb == null)
+            {
+                return NotFound();
+            }
+
+            return View(positionFromDb);
+        }
+
+
+        [HttpPost]
+        public IActionResult Edit(Position obj)
+        {
+            if (ModelState.IsValid)
+            {
+                _dbContext.Positions.Update(obj);
+                _dbContext.SaveChanges();
+                return RedirectToAction("Index");
+            }
+
+            return View(obj);
+        }
     }
 }

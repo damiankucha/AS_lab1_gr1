@@ -7,6 +7,8 @@
     <ul>
         <li>Id: @obj.Id</li>
         <li>Name: @obj.Name</li>
+        <a asp-controller="position" asp-action="delete" asp-route-id="@obj.Id">Delete</a>
+        <a asp-controller="position" asp-action="Edit" asp-route-id="@obj.Id">Edit</a>
     </ul>
     <hr />
 }

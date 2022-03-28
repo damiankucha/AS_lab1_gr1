@@ -10,7 +10,8 @@
         <li>Country: @obj.Country</li>
         <li>City: @obj.City</li>
         <li>FoundingDate: @obj.FoundingDate</li>
-        <li>League: @obj.League</li>
+        <li>League: @obj.League
+        </li>
         <li>
             Players:
             <ul>
@@ -35,6 +36,22 @@
                     @foreach (var homeMatch in obj.HomeMatches)
                     {
                         <li>@homeMatch</li>
+                    }
+                }
+                else
+                {
+                    <li>Brak wyników</li>
+                }
+            </ul>
+        </li>
+        <li>
+            Away matches:
+            <ul>
+                @if (obj.AwayMatches != null)
+                {
+                    @foreach (var awayMatch in obj.AwayMatches)
+                    {
+                        <li>@awayMatch</li>
                     }
                 }
                 else

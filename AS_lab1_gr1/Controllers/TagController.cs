@@ -6,8 +6,6 @@ namespace AS_lab1_gr1.Controllers
     public class TagController : Controller
     {
         private readonly MyDbContext _dbContext;
-        private readonly int superVariable;
-        private readonly string name;
 
         public TagController(MyDbContext dbContext)
         {

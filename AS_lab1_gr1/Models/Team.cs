@@ -9,14 +9,14 @@
         public DateTime FoundingDate { get; set; }
 
         // Home and away matches
-        public ICollection<Match> HomeMatches { get; set; }
-        public ICollection<Match> AwayMatches { get; set; }
+        public ICollection<Match>? HomeMatches { get; set; }
+        public ICollection<Match>? AwayMatches { get; set; }
 
         // Players
-        public ICollection<Player> Players { get; set; }
+        public ICollection<Player>? Players { get; set; }
 
         // League
         public League? League { get; set; }
-        public int LeagueId { get; set; }
+        public int? LeagueId { get; set; }
     }
 }

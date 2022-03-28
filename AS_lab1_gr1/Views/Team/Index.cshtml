@@ -1,0 +1,49 @@
+﻿@model IEnumerable<Team>
+
+<h3>Teams</h3>
+
+@foreach (var obj in Model) 
+{
+    <ul>
+        <li>Id: @obj.Id</li>
+        <li>Name: @obj.Name</li>
+        <li>Country: @obj.Country</li>
+        <li>City: @obj.City</li>
+        <li>FoundingDate: @obj.FoundingDate</li>
+        <li>League: @obj.League</li>
+        <li>
+            Players:
+            <ul>
+                @if (obj.Players != null)
+                {
+                    @foreach (var player in obj.Players)
+                    {
+                        <li>@player</li>
+                    }
+                }
+                else
+                {
+                    <li>Brak graczy</li>
+                }
+            </ul>
+        </li>
+        <li>
+            Home matches:
+            <ul>
+                @if (obj.HomeMatches != null)
+                {
+                    @foreach (var homeMatch in obj.HomeMatches)
+                    {
+                        <li>@homeMatch</li>
+                    }
+                }
+                else
+                {
+                    <li>Brak wyników</li>
+                }
+            </ul>
+        </li>
+    </ul>
+    <hr />
+}
+<a asp-controller="team" asp-action="add">Add new team</a>
